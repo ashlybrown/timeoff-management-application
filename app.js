@@ -7,19 +7,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var moment       = require('moment');
 const createSessionMiddleware = require('./lib/middleware/withSession');
+require('./bin/db-migrate');
 
 var app = express();
 
-//init db temp
-const db = require('./lib/model/db');
-
-db.initialise(function(err) {
-  if (err) {
-    console.error("Database migration failed:", err);
-  } else {
-    console.log("✅ Database migrated successfully on startup");
-  }
-});
 
 // View engine setup
 var handlebars = require('express-handlebars')
