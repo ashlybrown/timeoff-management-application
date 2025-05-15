@@ -11,7 +11,7 @@ const createSessionMiddleware = require('./lib/middleware/withSession');
 var app = express();
 
 //init db temp
-const db = require('./lib/db');
+const db = require('./lib/model/index');
 
 db.initialise(function(err) {
   if (err) {
