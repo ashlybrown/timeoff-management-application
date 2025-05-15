@@ -1,14 +1,39 @@
-{
-  "development": {
-    "dialect": "postgres",
-    "username": "username",
-    "password": "password", 
-    "database": "database_name",
-    "host": "hostname",
-    "port": "5432"
+'use strict';
+
+module.exports = {
+  development: {
+    dialect: 'postgres',
+    use_env_variable: 'DATABASE_URL',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
   },
-  "production": {
-    "use_env_variable": "DATABASE_URL",
-    "dialect": "postgres"
+  test: {
+    dialect: 'postgres',
+    use_env_variable: 'DATABASE_URL',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
+  },
+  production: {
+    dialect: 'postgres',
+    use_env_variable: 'DATABASE_URL',
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    },
+    pool: {
+      max: 5,
+      min: 0,
+      idle: 10000
+    }
   }
-}
+};
