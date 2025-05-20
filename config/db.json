@@ -1,39 +1,28 @@
-'use strict';
-
-module.exports = {
-  development: {
-    dialect: 'postgres',
-    use_env_variable: 'DATABASE_URL',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
+{
+  "development": {
+    "dialect": "postgres",
+    "host": "ep-wispy-lake-abs7tg5x-pooler.eu-west-2.aws.neon.tech",
+    "port": 5432,
+    "username": "neondb_owner",
+    "password": "npg_wG7inIO4vWjc",
+    "database": "neondb",
+    "ssl": true,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
       }
     }
   },
-  test: {
-    dialect: 'postgres',
-    use_env_variable: 'DATABASE_URL',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
+  "production": {
+    "dialect": "postgres",
+    "use_env_variable": "DATABASE_URL",
+    "ssl": true,
+    "dialectOptions": {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
       }
-    }
-  },
-  production: {
-    dialect: 'postgres',
-    use_env_variable: 'DATABASE_URL',
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false
-      }
-    },
-    pool: {
-      max: 5,
-      min: 0,
-      idle: 10000
     }
   }
-};
+}
